@@ -1,0 +1,47 @@
+<header class="jumbotron subhead" id="overview">
+  <h1>Chats</h1>
+</header>
+<div class="subnav">
+  <ul class="pager" >
+   <li class="previous">
+     <a href="/homes?page=<%=@page_pre%>">&larr; 上一页</a>
+   </li>
+   <li class="next">
+     <a href="/homes?page=<%=@page_next%>"> 下一页 &rarr;</a>
+   </li>
+  </ul>
+</div>
+<div class="container">
+<div class="well">
+<form class="form-horizontal" action="/homes/create_comment" method="post">
+  <fieldset style="padding:0 150px">
+    <label class="control-label" for="textarea">内容输入 ：</label>
+    <div class="controls">
+      <textarea class="input-xlarge" id="textarea" name="comment[text]" rows="4"></textarea>
+    </div>
+    <button style="margin: 0 250px;padding:0 30px" class="btn btn-success" for="textarea">提交</button>
+  </fieldset>
+</form>
+</div>
+<%if flash[:info] %>
+  <div class="alert alert-success">
+  <a class="close" data-dismiss="alert">×</a>
+    <%=flash[:info]%>
+  </div>
+<%end%>
+</div>
+ 
+<% @comment.each do |c| %>
+  <div class="span5">
+  <div class="well">
+    <pre>
+      <a href="#" rel="popover" title="mouse" data-content="天下第一帅哥"><img style="width:80px;height:80px" src="../stylesheets/img/mouse.jpg"></img></a>
+      <br>
+      Says(<%=c.created_at.strftime("%Y-%m-%d")%>) : <%=c.text%>
+    </pre>
+    <div>
+      <a class="btn btn-danger" href="/homes/destroy_comment?id=<%=c.id%>"><i class="icon-trash icon-white"></i> Delete</a>
+    </div>
+  </div>
+</div>
+<%end %>
