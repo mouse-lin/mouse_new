@@ -1,11 +1,13 @@
 module ApplicationHelper
 
   def active 
-     @active = { :first => "#", :second => "#" }
-     if params[:controller] == "homes" && params[:action] = "index"
+     @active = { :first => "#", :second => "#", :third => "#" }
+     if params[:controller] == "homes" && params[:action] == "mouse"
        @active[:first] = "active" 
+     elsif params[:controller] == "homes" && params[:action] == "index"
+       @active[:second] = "active"
      else
-       @active[:second] = "active" 
+       @active[:third] = "active" 
      end
      return @active
   end

@@ -29,13 +29,12 @@
     <%=flash[:info]%>
   </div>
 <%end%>
-</div>
  
 <% @comment.each do |c| %>
-  <div class="span5">
+  <div class="span11">
   <div class="well">
     <pre>
-      <a href="#" rel="popover" title="mouse" data-content="天下第一帅哥"><img style="width:80px;height:80px" src="../stylesheets/img/mouse.jpg"></img></a>
+      <a href="#" rel="popover" title="mouse" data-content="天下第一帅哥"><img style="width:80px;height:80px" src="../img/baichi.jpg"></img></a>
       <br>
       Says(<%=c.created_at.strftime("%Y-%m-%d")%>) : <%=c.text%>
     </pre>
@@ -45,3 +44,4 @@
   </div>
 </div>
 <%end %>
+</div>

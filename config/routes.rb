@@ -1,7 +1,12 @@
 Mouse::Application.routes.draw do
+  devise_for :users do
+    get "logout", :to =>  "devise/sessions#destroy"
+  end
+
   resources :homes do
     collection do
       get "index"
+      get "mouse"
       get "destroy_comment"
       post "create_comment"
     end
@@ -57,7 +62,7 @@ Mouse::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "homes#index"
+  root :to => "homes#mouse"
 
   # See how all your routes lay out with "rake routes"
 

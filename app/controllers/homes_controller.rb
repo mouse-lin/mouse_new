@@ -2,10 +2,13 @@
 class HomesController < ApplicationController
   protect_from_forgery :except => :create_comment
 
+  def mouse
+  end
+
   def index
     @comment = Comment.paginate(:order => "id desc", :page => params[:page],:per_page => 15)      
-    @page_pre = params[:page].to_i - 1 == 0? 1 : params[:page].to_i - 1
-    @page_next = params[:page].to_i + 1
+    @page_pre = params[:page].to_i - 1 <= 0? 1 : params[:page].to_i - 1
+    @page_next = params[:page].to_i + 1 <= 1? 2 : params[:page].to_i + 1
   end
 
   def destroy_comment

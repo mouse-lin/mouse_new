@@ -1,0 +1,26 @@
+<script type="text/javascript" charset="utf-8">
+  function clearPassword(){ 
+      $("#user_email").val("");
+      $("#user_password").val("");
+  }
+</script> 
+<div class="container">
+ <div class="well">
+ <h2>登录</h2>
+ <div style="margin:0 300px">
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <p><%= f.label :帐号 %><br />
+    <%= f.email_field :email%></p>
+  
+    <p><%= f.label :密码, %><br />
+    <%= f.password_field :password%></p>
+  
+    <% if devise_mapping.rememberable? -%>
+      <p><%= f.check_box :remember_me %> <%= f.label :记住我 %></p>
+    <% end -%>
+  <button class="btn btn-success">登录</button>
+  <a onclick=clearPassword() class="btn btn-warning">清空</a>
+  <% end %>
+  </div>
+  </div>
+</div>
