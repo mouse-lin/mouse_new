@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  #before_filter :authenticate_user!, :except => ["mouse"]
+  before_filter :authenticate_user!, :except => ["mouse"]
   #rescue_from ActiveRecord::RecordInvalid,:with => :respond_for_exception
 
 
