@@ -1,12 +1,20 @@
 Mouse::Application.routes.draw do
+
+  #opinio_model
   devise_for :users do
     get "logout", :to =>  "devise/sessions#destroy"
   end
 
+  resources :blogs do
+   # opinio
+  end
+
+  
   resources :homes do
     collection do
       get "index"
       get "mouse"
+      get "wando2"
       get "destroy_comment"
       post "create_comment"
     end

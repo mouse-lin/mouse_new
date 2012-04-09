@@ -3,6 +3,7 @@ class HomesController < ApplicationController
   protect_from_forgery :except => :create_comment
 
   def mouse
+    #@blog = Blog.first
   end
 
   def index
@@ -18,6 +19,7 @@ class HomesController < ApplicationController
   end
 
   def create_comment
+    params[:comment][:author] = current_user.email
     Comment.create!(params[:comment])
     redirect_to "/homes"
   rescue ActiveRecord::RecordInvalid => e
@@ -25,5 +27,7 @@ class HomesController < ApplicationController
     redirect_to "/homes" 
   end
 
-
+  
+  def wando2
+  end
 end

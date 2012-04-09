@@ -9,6 +9,12 @@ gem 'rails', '3.0.7'
 gem "mysql2", "0.2.7"
 gem 'will_paginate', '~> 3.0'
 gem "devise"
+gem 'acts_as_commentable_with_threading'
+#gem "acts_as_commentable"
+#gem "kaminari"
+#gem "opinio"
+#----------------------------------------------
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

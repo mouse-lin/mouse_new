@@ -1,7 +1,7 @@
 <header class="jumbotron subhead" id="overview">
-  <h1>Chats</h1>
+  <h2>我和白痴的地方</h2>
 </header>
-<div class="subnav">
+<div class="subnav" style="width:105%">
   <ul class="pager" >
    <li class="previous">
      <a href="/homes?page=<%=@page_pre%>">&larr; 上一页</a>
@@ -14,7 +14,7 @@
 <div class="container">
 <div class="well">
 <form class="form-horizontal" action="/homes/create_comment" method="post">
-  <fieldset style="padding:0 150px">
+  <fieldset style="padding:0 270px">
     <label class="control-label" for="textarea">内容输入 ：</label>
     <div class="controls">
       <textarea class="input-xlarge" id="textarea" name="comment[text]" rows="4"></textarea>
@@ -34,12 +34,16 @@
   <div class="span11">
   <div class="well">
     <pre>
-      <a href="#" rel="popover" title="mouse" data-content="天下第一帅哥"><img style="width:80px;height:80px" src="../img/baichi.jpg"></img></a>
+      <%if c.author == "910664586@qq.com"%>
+        <a href="#" rel="popover" title="mouse" data-content="天下第一帅哥"><img style="width:110px;height:120px" src="../img/mouse.jpg"></img></a>
+     <%else%>
+        <a href="#" rel="popover" title="baichi" data-content="天下第一美女"><img style="width:110px;height:120px" src="../img/baichi.jpg"></img></a>
+     <%end%>
       <br>
       Says(<%=c.created_at.strftime("%Y-%m-%d")%>) : <%=c.text%>
     </pre>
     <div>
-      <a class="btn btn-danger" href="/homes/destroy_comment?id=<%=c.id%>"><i class="icon-trash icon-white"></i> Delete</a>
+      <a class="btn btn-danger" href="/homes/destroy_comment?id=<%=c.id%>"><i class="icon-trash icon-white"></i>删除</a>
     </div>
   </div>
 </div>
